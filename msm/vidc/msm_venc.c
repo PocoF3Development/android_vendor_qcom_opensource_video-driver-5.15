@@ -50,13 +50,13 @@
 #define VENC_MAX_TIMESTAMP_LIST_SIZE 2
 
 static const char *const mpeg_video_rate_control[] = {
-	"VBR",
-	"CBR",
-	"CQ",
-	"CBR VFR",
-	"MBR",
-	"MBR VFR",
-	NULL
+	[V4L2_MPEG_VIDEO_BITRATE_MODE_VBR] = "VBR",
+	[V4L2_MPEG_VIDEO_BITRATE_MODE_CBR] = "CBR",
+	[V4L2_MPEG_VIDEO_BITRATE_MODE_CQ] = "CQ",
+	[V4L2_MPEG_VIDEO_BITRATE_MODE_CBR_VFR] = "CBR VFR",
+	[V4L2_MPEG_VIDEO_BITRATE_MODE_MBR] = "MBR",
+	[V4L2_MPEG_VIDEO_BITRATE_MODE_MBR_VFR] = "MBR VFR",
+	[VIDC_MAX_RATE_CONTROL_MODE + 1] = NULL
 };
 
 static const char *const mpeg_video_h264_profile[] = {
@@ -247,7 +247,7 @@ static struct msm_vidc_ctrl msm_venc_ctrls[] = {
 		.name = "Video Bitrate Control",
 		.type = V4L2_CTRL_TYPE_MENU,
 		.minimum = V4L2_MPEG_VIDEO_BITRATE_MODE_VBR,
-		.maximum = V4L2_MPEG_VIDEO_BITRATE_MODE_MBR_VFR,
+		.maximum = VIDC_MAX_RATE_CONTROL_MODE,
 		.default_value = V4L2_MPEG_VIDEO_BITRATE_MODE_VBR,
 		.menu_skip_mask = ~(
 		(1 << V4L2_MPEG_VIDEO_BITRATE_MODE_VBR) |

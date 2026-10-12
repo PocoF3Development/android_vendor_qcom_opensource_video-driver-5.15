@@ -13,6 +13,7 @@
 /* Prefer the kernel-exported legacy ABI when present. */
 #ifdef V4L2_CID_MPEG_MSM_VIDC_BASE
 #define MSM_VIDC_NATIVE_LEGACY_CONTROLS
+#define V4L2_MPEG_VIDEO_BITRATE_MODE_CQ V4L2_MPEG_VIDEO_BITRATE_MODE_MSM_CQ
 #endif
 
 /* vendor color format start */
@@ -127,6 +128,7 @@
 /* Vendor events end */
 
 /* missing v4l2 entries start */
+#ifndef MSM_VIDC_NATIVE_LEGACY_CONTROLS
 enum v4l2_mpeg_vidc_video_bitrate_mode {
 /*V4L2_MPEG_VIDEO_BITRATE_MODE_CBR + 1 is same V4L2_MPEG_VIDEO_BITRATE_MODE_CQ,
 To avoid duplication of enum value using V4L2_MPEG_VIDEO_BITRATE_MODE_CBR + 2*/
@@ -135,6 +137,7 @@ To avoid duplication of enum value using V4L2_MPEG_VIDEO_BITRATE_MODE_CBR + 2*/
 	V4L2_MPEG_VIDEO_BITRATE_MODE_MBR,
 	V4L2_MPEG_VIDEO_BITRATE_MODE_MBR_VFR,
 };
+#endif
 /* missing v4l2 entries end */
 
 /* vendor controls start */
